@@ -1,0 +1,15 @@
+version: '2'
+services:
+  eureka-server:
+    image: eureka-server:v1
+#    build: ./spring-cloud-server
+    ports:
+      - "8762:8762"
+
+  eureka-client:
+    image: eureka-client:localhost
+#    build: ./spring-cloud-client
+    ports:
+      - "6001:6001"
+    depends_on:
+      - eureka-server
